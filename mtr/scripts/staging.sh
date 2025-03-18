@@ -39,7 +39,7 @@ header_red() {
 
 if [[ "$EUID" -ne 0 ]]; then
   clear && clear
-  echo -e "${RED}#########################################################################${RESET}\\n"
+  echo -e "${PURPLE}#########################################################################${RESET}\\n"
   echo -e "${WHITE_R}#${RESET} The script need to be run as root...\\n\\n"
   echo -e "${WHITE_R}#${RESET} For Ubuntu based systems run the command below to login as root"
   echo -e "${GREEN}#${RESET} sudo -i\\n"
