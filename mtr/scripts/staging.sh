@@ -1,6 +1,10 @@
 #!/bin/bash
 
-echo MTR Logger created by Caleb Brendel
+# MTR Logger Installation Script.
+# Version  | 1.0.0
+# Author   | Caleb Brendel
+# Email    | caleb.brendel@basedment.org
+# Website  | https://basedment.org
 
 script_logo() {
   cat << "EOF"
