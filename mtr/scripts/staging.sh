@@ -2,6 +2,18 @@
 
 echo MTR Logger created by Caleb Brendel
 
+script_logo() {
+  cat << "EOF"
+         __           .__                                     
+  ______/  |________  |  |   ____   ____   ____   ___________ 
+ /     \   __\_  __ \ |  |  /  _ \ / ___\ / ___\_/ __ \_  __ \
+|  Y Y  \  |  |  | \/ |  |_(  <_> ) /_/  > /_/  >  ___/|  | \/
+|__|_|  /__|  |__|    |____/\____/\___  /\___  / \___  >__|   
+      \/                         /_____//_____/      \/       
+
+EOF
+}
+
 # List of dependencies needed: curl, cron & mtr
 
 # Create MTR directories to store cron job scripts and log files
