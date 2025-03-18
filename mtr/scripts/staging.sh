@@ -63,7 +63,8 @@ script_logo() {
 EOF
 }
 
-# List of dependencies needed: curl, cron & mtr
+# Install dependencies needed: curl, cron & mtr
+sudo apt install mtr
 
 # Create MTR directories to store cron job scripts and log files
 
