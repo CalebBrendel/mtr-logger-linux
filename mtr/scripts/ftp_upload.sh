@@ -4,6 +4,4 @@
 
 # Remove the server, user, and password fields and populate them with the correct information
 
-cd /mtr/logs/archive
-
 ftp-upload -h {SERVER} -u {USER} --password {PASSWORD} *.zip
