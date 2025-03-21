@@ -104,7 +104,7 @@ line="0 0 * * * mtr/scripts/create_archive_dirs.sh"
 line="1 0 * * * mtr/scripts/archive.sh"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
 
-# Cron job for moving the logs into the archvie directories
+# Cron job for uploading files to the ftp server setup in the script
 
 line="2 0 * * * mtr/scripts/ftp_upload.sh"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
