@@ -63,8 +63,8 @@ script_logo() {
 EOF
 }
 
-# Install dependencies needed: curl, cron & mtr
-sudo apt install mtr
+# Install dependencies needed: curl, cron, mtr & ftp-upload
+sudo apt install curl cron mtr ftp-upload -y
 
 # Create MTR directories to store cron job scripts and log files
 
@@ -102,4 +102,9 @@ line="0 0 * * * mtr/scripts/create_archive_dirs.sh"
 # Cron job for moving the logs into the archvie directories
 
 line="1 0 * * * mtr/scripts/archive.sh"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+
+# Cron job for moving the logs into the archvie directories
+
+line="2 0 * * * mtr/scripts/ftp_upload.sh"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
