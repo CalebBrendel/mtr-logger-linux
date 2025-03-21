@@ -99,12 +99,17 @@ line="0 * * * * mtr/scripts/run_mtr_every_hour.sh"
 line="0 0 * * * mtr/scripts/create_archive_dirs.sh"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
 
-# Cron job for moving the logs into the archvie directories
+# Cron job for moving the logs into the archive directories every day at the first minute
 
 line="1 0 * * * mtr/scripts/archive.sh"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
 
-# Cron job for uploading files to the ftp server setup in the script
+# Cron job for zipping the archive directory for the current date every day at the second minute
 
-line="2 0 * * * mtr/scripts/ftp_upload.sh"
+line="2 0 * * * mtr/scripts/archive_zip.sh"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+
+# Cron job for uploading the zip file for the current date to the ftp server every day at the third minute
+
+line="3 0 * * * mtr/scripts/ftp_upload.sh"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
