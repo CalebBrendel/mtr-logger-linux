@@ -6,4 +6,4 @@
 
 cd /mtr/logs/archive
 
-ftp-upload -h {SERVER} -u {USER} --password {PASSWORD} *.txt
+ftp-upload -h {SERVER} -u {USER} --password {PASSWORD} *.zip
