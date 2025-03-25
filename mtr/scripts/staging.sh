@@ -86,8 +86,11 @@ echo Now downloading all scripts needed to log packet loss
 
 curl -L https://raw.githubusercontent.com/CalebBrendel/mtr-logger-linux/refs/heads/main/mtr/scripts/run_mtr_every_hour.sh > /mtr/scripts/run_mtr_every_hour.sh
 
+# Set the permissions of the mtr script to be executable
 
-echo Creating cron jobs to run scripts 
+sudo chmod +x /mtr/scripts/run_mtr_every_hour.sh
+
+# Creating cron jobs to run scripts...
 
 # Crob job for MTR to run at the beginning of every hour
 
