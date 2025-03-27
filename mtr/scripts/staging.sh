@@ -92,32 +92,32 @@ sudo chmod +x /mtr/scripts/run_mtr_every_hour.sh
 
 # Creating cron jobs to run scripts...
 
-# Crob job for MTR to run at the beginning of every hour
-
-line="0 * * * * /mtr/scripts/run_mtr_every_hour.sh"
-(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
-
 # Cron job for creating archive directories at midnight every day
 
-line="0 0 * * * /mtr/scripts/create_archive_dirs.sh"
+line="0 0 * * * ( sleep 1 ; /mtr/scripts/create_archive_dirs.sh )"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
 
 # Cron job for moving the logs into the archive directories every day at the first minute
 
-line="1 0 * * * /mtr/scripts/archive.sh"
+line="1 0 * * * ( sleep 4 ; /mtr/scripts/archive.sh )"
+(crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
+
+# Crob job for MTR to run at the beginning of every hour
+
+line="0 * * * * ( sleep 8 ; /mtr/scripts/run_mtr_every_hour.sh )"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
 
 # Cron job for zipping the archive directory for the current date every day at the second minute
 
-line="2 0 * * * /mtr/scripts/archive_zip.sh"
+line="2 0 * * * ( sleep 10 ; /mtr/scripts/archive_zip.sh )"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
 
 # Cron job for uploading the zip file for the current date to the ftp server every day at the third minute
 
-line="3 0 * * * /mtr/scripts/ftp_upload.sh"
+line="3 0 * * * ( sleep 20 ; /mtr/scripts/ftp_upload.sh )"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
 
 # Cron job for uploading the zip file for the current date to the ftp server every day at the fifth minute
 
-line="5 0 * * * /mtr/scripts/del_zip.sh"
+line="5 0 * * * ( sleep 30 ; /mtr/scripts/del_zip.sh )"
 (crontab -u $(whoami) -l; echo "$line" ) | crontab -u $(whoami) -
