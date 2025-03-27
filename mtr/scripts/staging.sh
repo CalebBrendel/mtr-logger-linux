@@ -86,9 +86,29 @@ echo Now downloading all scripts needed to log packet loss
 
 curl -L https://raw.githubusercontent.com/CalebBrendel/mtr-logger-linux/refs/heads/main/mtr/scripts/run_mtr_every_hour.sh > /mtr/scripts/run_mtr_every_hour.sh
 
+# Set the permissions of the create archive script to be executable
+
+sudo chmod +x /mtr/scripts/create_archive_dirs.sh
+
+# Set the permissions of the create archive script to be executable
+
+sudo chmod +x /mtr/scripts/archive.sh
+
 # Set the permissions of the mtr script to be executable
 
 sudo chmod +x /mtr/scripts/run_mtr_every_hour.sh
+
+# Set the permissions of the archive zip script to be executable
+
+sudo chmod +x /mtr/scripts/archive_zip.sh
+
+# Set the permissions of the ftp upload script to be executable
+
+sudo chmod +x /mtr/scripts/ftp_upload.sh
+
+# Set the permissions of the delete zip file script to be executable
+
+sudo chmod +x /mtr/scripts/del_zip.sh
 
 # Creating cron jobs to run scripts...
 
